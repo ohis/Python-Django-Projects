@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome,{{user.first_name}}</h1>
+    <h1>Quotable Quotes</h1>
+    {% for quote in quotes %}
+     <p>{{quote.author}} : {{quote.message}}</p>
+      <p>Posted by:<a href="/users/{{ quote.submit.id }}">{{ quote.user_submit }}</a></p>
+
+     <form action="quotes/add/{{ quote.id }}" method="post">
+         {% csrf_token %}
+         <input type="submit"  value="Add to mylist">
+     </form>
+      {% endfor %}
+
+
+
+    <h2>Contribute a quote</h2>
+    <form  action="/submit" method="post">
+      {% csrf_token %}
+        <label for="">Quote By:<input type="text" name="author"></label>
+        <label for="">Messge:<textarea name="message" rows="8" cols="40"></textarea></label>
+        <input type="submit"  value="Submit">
+    </form>
+
+  </body>
+</html>

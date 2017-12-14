@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Schedule your Appointment:</h1>
+
+    <form  action="/schedule" method="post">
+      {% csrf_token %}
+      <input type="date" name="date" value="">
+      <br>
+      <input type="text" name="time" value="">
+      <br>
+      <input type="submit" name="" value="Submit">
+
+    </form>
+
+  </body>
+</html>

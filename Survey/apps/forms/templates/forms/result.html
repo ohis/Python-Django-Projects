@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Survey Form</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <p>Thanks for submitting this form you have submmitted it {{request.session.count}} times now</p>
+      <h4>Submitted Information</h4>
+      <p>Name : {{request.session.name}}</p>
+      <p>Dojo Location: {{request.session.location}}</p>
+      <p>Favorite Language : {{request.session.language}}</p>
+      <p>Comment : {{request.session.comment}}</p>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>This my blog</h1>
+
+        {% for blog in blogs %}
+          <h2>Title:  {{blog.title}}</h2>
+          <p>{{blog.blog}}</p>
+        {% endfor %}
+
+
+     <form action="/blogs" method="post">
+       {% csrf_token %}
+       <label for="">Title</label>
+        <input type="text" name="title">
+        <textarea name="blog" rows="8" cols="40"></textarea>
+        <input type="submit"  value="Enter Blog">
+
+     </form>
+
+
+     <h1>Enter comments</h1>
+
+    {% for blog in blogs %}
+    <h2>Title:  {{blog.title}}</h2>
+    <form action="/comments/{{blog.id}}" method="post">
+       {% csrf_token %}
+       <textarea name="comment" rows="8" cols="80"></textarea>
+       <input type="submit" value="Enter Comment on this Blog">
+
+    </form>
+    {% endfor %}
+
+
+    {% for blog in blogs %}
+    <h2>Title:  {{blog.title}}</h2>
+      <p>{{blog.blog}}</p>
+    {% for com in comment %}
+
+      <p>Comments:{{blog.com}}</p>
+    {% endfor %}
+  {% endfor %}
+
+
+
+  </body>
+</html>

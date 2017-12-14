@@ -1,0 +1,17 @@
+* {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper {
+    width: 970px;
+    margin: auto;
+    background-color: #265175;
+
+  }
+
+  h1{
+    color: green;
+  }

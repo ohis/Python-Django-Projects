@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+          <title></title>
+
+  </head>
+  <body>
+    <div class="container">
+
+      <table class="table table-inverse table-bordered table-sm" style="margin-top:30px">
+    <thead>
+      <tr class="bg-success">
+        <th>id</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for a in authors %}
+      <tr>
+
+        <th scope="row">{{a.id}}</th>
+        <td>{{a.title}}</td>
+        <td>{{a.author}}</td>
+        <td>{{a.category}}</td>
+      </tr>
+
+
+        {% endfor %}
+    </tbody>
+  </table>
+
+      <h1>Add a book</h1>
+
+  <form action="/book" method="post">
+    {% csrf_token %}
+  <div class="form-group form-group-sm">
+    <label for="exampleInputEmail1">Title</label>
+    <input type="text" class="form-control" name="title" placeholder="Enter Title">
+  </div>
+  <div class="row">
+    <div class="col-6">
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">Category</label>
+        <input type="text" class="form-control"  name="category" placeholder="Category">
+      </div>
+    </div>
+
+<div class="col-6">
+  <div class="form-group">
+    <label for="exampleInputPassword1">Author</label>
+    <input type="text" class="form-control" name="author" placeholder="Author">
+  </div>
+
+
+</div>
+
+  </div>
+
+
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Got here</h1>
+
+    <table>
+      <tr>
+        <thead>
+          <td>User Name</td>
+          <td>Action</td>
+        </thead>
+      </tr>
+
+      <tr>
+        {% for user in all_users %}
+        <tbody>
+          <td>{{user.name}}</td>
+          <td><a href="{%url 'show_page' id=user.id%}">view</a></td>
+        </tbody>
+        {% endfor %}
+      </tr>
+    </table>
+
+    <a href="{%url 'back' %}">enter another user interest</a>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Yay</h1>
+     <h1>{{user.name}} 's Interests</h1>
+
+     {% for user in user_interest%}
+     <p>{{user.interest}}</p><a href="{%url 'remove_interest' id=user.id%}">delete</a>
+     {% endfor %}
+
+      <a href="{% url 'next_page' %}">back to users</a>
+      <a href="{% url 'back' %}">enter another user interest</a>
+
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome!{{user.name}}</h1>
+
+    <h2>Your Wish List</h2>
+    <table>
+      <tr>
+        <th>Item </th>
+        <th>Added by </th>
+        <th>Action </th>
+      </tr>
+       {% for w in wish_item %}
+      <tr>
+        <td>{{w.item_name}}</td>
+        <td>{{w.creator.name}}</td>
+        <td>{{w.created_at}}</td>
+        <td><a href="/delete/{{w.creator.id}}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <h2>Other user's wishlist</h2>
+
+    <table>
+      <tr>
+        <th>Item </th>
+        <th>Added by </th>
+        <th>Action </th>
+      </tr>
+       {% for user in other_wishlist %}
+      <tr>
+        <td>{{user.item_name}}</td>
+        <td>{{user.creator.name}}</td>
+        <td>{{user.created_at}}</td>
+        <td><a href="/delete/{{user.creator.id}}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+
+   <a href="{% url 'add_new' %}">Add item</a>
+  </body>
+</html>
